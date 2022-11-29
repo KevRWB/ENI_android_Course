@@ -1,0 +1,7 @@
+<resources>
+
+    <string name="app_name">MOdule 4 Aléatoire</string>
+    <string name="label_title">Générateur de nombre aléatoire</string>
+    <string name="label_button_generate">Générer</string>
+
+</resources>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/homeFragment">
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.mod5tpcouleurs.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/actionHomeToBlue"
+            app:destination="@id/blueFragment3" />
+        <action
+            android:id="@+id/actionHomeToPink"
+            app:destination="@id/pinkFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/blueFragment3"
+        android:name="com.example.mod5tpcouleurs.BlueFragment"
+        android:label="fragment_blue"
+        tools:layout="@layout/fragment_blue" >
+        <action
+            android:id="@+id/action_blueFragment3_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/pinkFragment2"
+        android:name="com.example.mod5tpcouleurs.PinkFragment"
+        android:label="fragment_pink"
+        tools:layout="@layout/fragment_pink" >
+        <action
+            android:id="@+id/action_pinkFragment2_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+</navigation>

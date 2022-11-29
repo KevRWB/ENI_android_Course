@@ -1,0 +1,37 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+rootProject.name = "mod2ihmsimple"
+include ':mod2ihm1'
+include ':mod2ihm2'
+include ':mod3tpihm'
+include ':mod3tp2sissa'
+include ':mod3tp3moyenne'
+include ':mod3tp3moyenne2'
+include ':mod4demo1'
+include ':mod4tp1random'
+include ':mod4databinding'
+include ':mod4tpvraifaux'
+include ':mod5nav'
+include ':mod5tpcouleurs'
+include ':mod5tphistoire'
+include ':mod5appbar'
+include ':mod6intentexpl'
+include ':mod6intentimpl'
+include ':mod6permission'
+include ':mod6permissionstp'
+include ':mod7lifecycle'
+include ':mod7compteur'
+include ':mod7lifecycle:mod7tpdes'
+include ':mod7tpdes'
