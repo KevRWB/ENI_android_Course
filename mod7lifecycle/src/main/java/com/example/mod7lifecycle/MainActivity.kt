@@ -17,17 +17,21 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+
+        //add liveData
+        binding.lifecycleOwner = this
+
+        //Add Log to onCreate method
         Log.i(TAG, "onCreate: Creation de l'appli")
         //setContentView(R.layout.activity_main)
-
         viewModel = ViewModelProvider(this)[CompteurViewModel::class.java]
 
-        val fabIncrement = binding.fabIncrement
-        val textView = binding.textViewCompteur
-
-        fabIncrement.setOnClickListener(){
+        binding.fabIncrement.setOnClickListener(){
             viewModel.increment()
-            textView.text = (viewModel.compteur).toString()
+        }
+
+        binding.buttonDecrement.setOnClickListener(){
+            viewModel.decrement()
         }
     }
 
