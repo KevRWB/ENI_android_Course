@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity(), OnClickListener {
         binding.viewmodel = viewModel
         //add liveData
         binding.lifecycleOwner = this
-        
+
     }
 
     override fun onClick(view: View?) {
