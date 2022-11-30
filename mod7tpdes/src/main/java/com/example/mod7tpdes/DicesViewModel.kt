@@ -1,14 +1,15 @@
 package com.example.mod7tpdes
 
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class DicesViewModel: ViewModel() {
 
-    var result = 0
+    val resultString = MutableLiveData("0/x")
 
-    fun rand(max: Int){
-        result = (1..max).random()
+    fun launch(max: Int){
+        val rand = (1..max).random()
+        resultString.value = "$rand/$max"
     }
-
 
 }

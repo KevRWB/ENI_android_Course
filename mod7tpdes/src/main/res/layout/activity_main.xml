@@ -19,8 +19,8 @@
             android:id="@+id/textViewDiceValue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{String.valueOf(viewmodel.result)}"
             android:textSize="24sp"
+            android:text="@{viewmodel.resultString}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -28,6 +28,7 @@
             app:layout_constraintVertical_bias="0.311" />
 
         <Button
+            android:onClick="onClick"
             android:id="@+id/buttonDice6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -39,6 +40,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textViewDiceValue" />
 
         <Button
+            android:onClick="onClick"
             android:id="@+id/buttonDice8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -48,16 +50,6 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/buttonDice6"
             app:layout_constraintTop_toBottomOf="@+id/textViewDiceValue" />
-
-        <Button
-            android:id="@+id/button3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="68dp"
-            android:text="Button"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/buttonDice6" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
