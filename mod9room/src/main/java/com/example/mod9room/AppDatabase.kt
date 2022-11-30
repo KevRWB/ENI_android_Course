@@ -2,6 +2,7 @@ package com.example.mod9room
 
 import android.content.Context
 import androidx.room.Database
+import androidx.room.Room
 import androidx.room.RoomDatabase
 
 @Database (entities = arrayOf(Oiseau::class), version = 1)
@@ -19,8 +20,14 @@ abstract class AppDatabase : RoomDatabase(){
             var instance = INSTANCE
             //if instance est null, on crée la base de données
             if(instance == null){
-                instance = 
+                instance = Room.databaseBuilder(
+                    context, AppDatabase::class.java, "OiseauDb"
+                ).fallbackToDestructiveMigration().build()
             }
+
+            INSTANCE = instance
+
+            return instance
         }
 
     }
