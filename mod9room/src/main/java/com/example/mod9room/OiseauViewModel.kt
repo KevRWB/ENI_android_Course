@@ -19,6 +19,7 @@ class OiseauViewModel(var dao: OiseauDao) : ViewModel() {
             ): T {
                 // Get the Application object from extras
                 val application = checkNotNull(extras[APPLICATION_KEY])
+
                 return OiseauViewModel(
                     AppDatabase.getInstance(application.applicationContext).oiseauDao()
                 ) as T
