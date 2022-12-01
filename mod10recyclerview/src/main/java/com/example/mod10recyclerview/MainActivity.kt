@@ -1,6 +1,7 @@
 package com.example.mod10recyclerview
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -17,7 +18,13 @@ class MainActivity : AppCompatActivity() {
             Gateau("Gateau praline", false, 10, "praliné" )
         )
 
-        val adapter = GateauAdapter(alGateaux)
+        val adapter = GateauAdapter(alGateaux, {
+            Toast.makeText(
+                this,
+                if(it.glacage) "Glacé" else "Pas glacé",
+                Toast.LENGTH_SHORT).show()
+
+        })
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerViewGateau)
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = adapter

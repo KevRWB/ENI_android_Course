@@ -6,7 +6,8 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.example.mod10recyclerview.databinding.TemplateLineGateauBinding
 
-class GateauAdapter(val alGateaux : ArrayList<Gateau>) : RecyclerView.Adapter<GateauAdapter.GateauVH>() {
+class GateauAdapter(val alGateaux : ArrayList<Gateau>, val listener : (gateau:Gateau) -> Unit) :
+    RecyclerView.Adapter<GateauAdapter.GateauVH>() {
 
 
     class GateauVH(val bindingLineGateau : TemplateLineGateauBinding)
@@ -25,6 +26,10 @@ class GateauAdapter(val alGateaux : ArrayList<Gateau>) : RecyclerView.Adapter<Ga
     override fun onBindViewHolder(holder: GateauVH, position: Int) {
         val gateauToDisplay = alGateaux[position]
         holder.bindingLineGateau.gateau=gateauToDisplay
+        holder.itemView.setOnClickListener{
+            listener.invoke(gateauToDisplay)
+        }
+
     }
 
     override fun getItemCount(): Int = alGateaux.size
