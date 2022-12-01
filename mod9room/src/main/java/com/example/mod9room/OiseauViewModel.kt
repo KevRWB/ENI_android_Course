@@ -1,10 +1,9 @@
 package com.example.mod9room
 
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.*
 import androidx.lifecycle.ViewModelProvider.AndroidViewModelFactory.Companion.APPLICATION_KEY
 import androidx.lifecycle.viewmodel.CreationExtras
+import kotlinx.coroutines.launch
 
 class OiseauViewModel(var dao: OiseauDao) : ViewModel() {
 
@@ -27,10 +26,21 @@ class OiseauViewModel(var dao: OiseauDao) : ViewModel() {
         }
     }
 
-    fun getOiseau(){
-        oiseau.value = dao.get(1)
+    fun getOiseauById(id:Long){
+        viewModelScope.launch {
+            oiseau.value = dao.get(id)
+        }
+
     }
 
+    fun addOiseau(oiseau : Oiseau) : LiveData<Long>{
+        val result = MutableLiveData<Long>()
 
+        viewModelScope.launch {
+            result.value = dao.insert(oiseau)
+        }
+        return result
+
+    }
 
 }
