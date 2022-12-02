@@ -3,6 +3,7 @@ package com.example.mod12api
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import com.squareup.moshi.Moshi
 import okhttp3.*
 import java.io.IOException
 
@@ -25,6 +26,10 @@ class MainActivity : AppCompatActivity() {
 
             override fun onResponse(call: Call, response: Response) {
                 Log.i(TAG, "onResponse : ${response.body?.string()}")
+                if(response.isSuccessful){
+                    val adapter = Moshi.Builder().build()
+
+                }
             }
 
         })
